@@ -20,3 +20,11 @@ obj.my_method('Hello')# 这一步才有@text = 'hello'
 ```
 
 - 对象包括实例变量，而方法不在对象中。**方法只在类里**。此外，不能说~~这个类有一个方法~~，除非这是一个类方法，该类可以调用它。只能说**这个方法是该类的实例方法，只有定义一个类的实例才可以调用**。对象可以有一个方法，但这个方法并不在对象内部。
+
+## Summary
+So what is **object**? An object contains some instance viables and a reference to its class. 
+Object don't contain methods, which are in the class.
+
+What is **class**? class is also an object of Class with some instance viables and a reference to its superclass(module). A class is a module(with some differences).
+
+module has some constants, and some methods. module provides the **namespace**, we can use :: to get the methods or constant.
