@@ -46,3 +46,40 @@ end
 v = 2
 obj.instance_eval {@v = v} #这里类中的实例变量v被赋予新的值2
 ```
+
+## 延迟执行 proc lambda 方法
+
+块并不是对象，如果想要把块当作对象来使用，则需要使用另一种方法。
+
+1. Proc类
+  例如：
+  
+  ```ruby
+  inc = proc.new {|x| x - 1}
+  inc.call(2)
+  ```
+
+2. 还有另外几种方法：lambda
+  例如
+
+  ```ruby
+  dec = lambda {|x| x - 1}
+  dec.call(2)
+  ```
+
+  与上面的方法效果一样。
+
+了解**操作符&**
+操作符&表示把这个变量转变为一个proc类型的量
+
+### proc和lambda的区别
+
+- **关于return** 在lambda中，它表示从lambda返回；在proc中，它表示从proc定义的作用域返回，超过这个作用域就无法触及到这个变量。
+
+- lambda对参数的对应要求很严格，否则它会报错；而proc可以自己调整接受的参数个数，使其适应它被定义的输出。**为了防止歧义的产生，通常用lambda方法**
+
+lambda方法的另一种写法是：
+
+```ruby
+bloc = -> (x) {x + 1}
+```
