@@ -41,3 +41,17 @@ Dir.glob('*event.rb').each do |file| #找到目录下每一个以event.rb结尾�
     puts "ALERT: #{name}" if env.instance_eval &event #用instance_eval方法调用event作为一个块，以块中的布尔值作为返回值
   end
 end
+
+#########
+#这个程序的完全运行过程为：
+#lambda块定义方法并调用（使其生效）
+#主程序：
+#找到所需要的测试文件
+#加载文件
+#在加载的文件中运行event方法（运行2次）
+#调用event_each方法，并运行方法内部的语句 （a）
+#构造env对象
+#调用each_setup并运行方法内部代码
+#对第一个event判断并决定是否输出（b）
+#对第二个event重复(a)-(b)
+################
